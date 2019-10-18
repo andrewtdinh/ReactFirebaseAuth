@@ -27,10 +27,22 @@ const Login = ({ history }) => {
   }
 
   return (
-    <>
-      <button onClick={() => app.auth().signIn()}>Log in</button>
-    </>
+    <div>
+      <h1>Log In</h1>
+      <form onSubmit={handleLogin}>
+        <label>
+          Email
+          <input type="email" name="email" placeholder="Email"/>
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" placeholder="Password"/>
+        </label>
+        <button type="submit">Log in</button>
+
+      </form>
+    </div>
   )
 }
 
-export default Login;
+export default withRouter(Login);
