@@ -1,4 +1,5 @@
-# React Firebase Authentication
+# React Firebase Authentication - NOT COMPLETE
+(Need to troubleshoot by the Home component is present in Login and SignUp pages)
 Go to https://www.youtube.com/watch?v=unr4s3jd9qA&list=PLgXCQ5s5YYA51Kf67sI3rvJ-rAkOj6JgW&index=2 for details.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
