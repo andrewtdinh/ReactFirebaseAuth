@@ -12,7 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {this.state.isSignedIn ? (<Text>Signed In!</Text>) : (<Text>Not Signed In</Text>)}
+        {this.state.isSignedIn ? (<div>Signed In!</div>) : (<div>Not Signed In</div>)}
       </div>
     )
   }
