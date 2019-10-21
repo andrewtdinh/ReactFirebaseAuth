@@ -3,6 +3,11 @@ import './App.css';
 import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
+firebase.initializeApp({
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
+});
+
 class App extends React.Component {
   state = {
     isSignedIn: false
@@ -23,10 +28,6 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    firebase.initializeApp({
-      apiKey: process.env.REACT_APP_FIREBASE_KEY,
-      authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
-    });
     firebase.auth().onAuthStateChanged(user => {
       this.setState({ isSignedIn: !!user });
     });
