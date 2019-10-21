@@ -23,6 +23,10 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
+    firebase.initializeApp({
+      apiKey: process.env.REACT_APP_FIREBASE_KEY,
+      authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
+    });
     firebase.auth().onAuthStateChanged(user => {
       this.setState({ isSignedIn: !!user });
     });
