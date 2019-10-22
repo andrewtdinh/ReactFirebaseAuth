@@ -1,3 +1,6 @@
+# React Firebase Authentication
+Created using tutorial at https://www.youtube.com/watch?v=zq0TuNqV0Ew.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
