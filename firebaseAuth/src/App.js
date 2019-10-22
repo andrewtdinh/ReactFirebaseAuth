@@ -37,7 +37,11 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.state.isSignedIn ? 
-          (<div>Signed In!</div>) : 
+          ( <>
+              <div>Signed In!</div>
+              <button onClick={() => firebase.auth().signOut()}>Sign Out!</button>
+            </>
+          ) : 
           ( <StyledFirebaseAuth
               uiConfig={this.uiConfig}
               firebaseAuth={firebase.auth()}
