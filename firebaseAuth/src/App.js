@@ -41,6 +41,7 @@ class App extends React.Component {
               <div>Signed In!</div>
               <button onClick={() => firebase.auth().signOut()}>Sign Out!</button>
               <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
+              <img src={firebase.auth().currentUser.photoURL} alt="profile"/>
             </>
           ) : 
           ( <StyledFirebaseAuth
