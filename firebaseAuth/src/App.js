@@ -11,7 +11,7 @@ firebase.initializeApp({
 const App = () => {
   const { isSignedIn, setIsSignedIn } = useState(false);
 
-  uiConfig = {
+  const uiConfig = {
     signInFlow: 'popup',
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -25,32 +25,36 @@ const App = () => {
     }
   }
 
-  componentDidMount = () => {
+  useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
-      this.setState({ isSignedIn: !!user });
+      setIsSignedIn(!!user);
     });
-  }
+  }, []);
 
-  render() {
-    return (
-      <div className="App">
-        {this.state.isSignedIn ? 
-          ( <>
-              <div>Signed In!</div>
-              <button onClick={() => firebase.auth().signOut()}>Sign Out!</button>
-              <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
-              <img src={firebase.auth().currentUser.photoURL} alt="profile"/>
-            </>
-          ) : 
-          ( <StyledFirebaseAuth
-              uiConfig={this.uiConfig}
-              firebaseAuth={firebase.auth()}
-            />
-          )
-        }
-      </div>
-    )
-  }
+  // componentDidMount = () => {
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     this.setState({ isSignedIn: !!user });
+  //   });
+  // }
+
+  return (
+    <div className="App">
+      {isSignedIn ? 
+        ( <>
+            <div>Signed In!</div>
+            <button onClick={() => firebase.auth().signOut()}>Sign Out!</button>
+            <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
+            <img src={firebase.auth().currentUser.photoURL} alt="profile"/>
+          </>
+        ) : 
+        ( <StyledFirebaseAuth
+            uiConfig={uiConfig}
+            firebaseAuth={firebase.auth()}
+          />
+        )
+      }
+    </div>
+  )
 }
 
 export default App;
