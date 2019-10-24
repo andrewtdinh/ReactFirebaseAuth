@@ -9,7 +9,7 @@ firebase.initializeApp({
 });
 
 const App = () => {
-  const { isSignedIn, setIsSignedIn } = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
   const uiConfig = {
     signInFlow: 'popup',
