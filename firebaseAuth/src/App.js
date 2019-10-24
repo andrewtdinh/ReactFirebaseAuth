@@ -31,12 +31,6 @@ const App = () => {
     });
   }, []);
 
-  // componentDidMount = () => {
-  //   firebase.auth().onAuthStateChanged(user => {
-  //     this.setState({ isSignedIn: !!user });
-  //   });
-  // }
-
   return (
     <div className="App">
       {isSignedIn ? 
