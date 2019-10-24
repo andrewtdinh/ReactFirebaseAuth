@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
@@ -8,10 +8,8 @@ firebase.initializeApp({
   authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
 });
 
-class App extends React.Component {
-  state = {
-    isSignedIn: false
-  }
+const App = () => {
+  const { isSignedIn, setIsSignedIn } = useState(false);
 
   uiConfig = {
     signInFlow: 'popup',
